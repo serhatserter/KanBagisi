@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Giriş Yap</title>
+        <style>               
+            .Bimage{
+                background-image: url("#{resource['resimler/background.jpg']}");
+                background-size: cover;
+                background-repeat: no-repeat;
+                font-family:"verdana";
+            }
+
+            .Grid{
+                width: 20%;
+                position: absolute;
+                top: 60%;
+                left: 75%;    
+            }
+            
+            .Grid2{
+                width: 20%;
+                position: absolute;
+                top: 60%;
+                left: 5%;
+                height:30px; 
+            }
+            
+            .Columns{
+               width: 95%;
+               margin: 5px;
+               text-align:center;   
+            }
+            
+            .Facet{
+                background: red;
+            }
+            
+        </style> 
+    </h:head>
+    
+    <h:body styleClass="Bimage">
+        <p:growl id ="growl" sticky="true" showDetail="true"/>
+        
+        <p style="text-shadow: 2px 2px gray; font-size:60px; color: whitesmoke;margin: 100px;">
+            KAN BAĞIŞI<br></br> HAYAT KURTARIR
+        </p>
+        
+                <h:form >
+            
+            <p:panelGrid columns="1" styleClass="Grid2">        
+                <f:facet name="header"><h3 style="margin: 5px;">Gönüllü Ara</h3></f:facet> 
+
+                <p:column >
+                    <h:outputText styleClass="Columns" value="Aradığınız Kan Grubu:"/>
+                    <h:selectOneMenu styleClass="Columns" value = "#{search.araKan}"> 
+                <f:selectItem  itemValue = "A+" itemLabel = "A+" /> 
+                <f:selectItem itemValue = "A-" itemLabel = "A-" /> 
+                <f:selectItem itemValue = "B+" itemLabel = "B+" /> 
+                <f:selectItem itemValue = "B-" itemLabel = "B-" />
+                <f:selectItem itemValue = "AB+" itemLabel = "AB+" /> 
+                <f:selectItem itemValue = "AB-" itemLabel = "AB-" /> 
+                <f:selectItem itemValue = "0+" itemLabel = "0+" /> 
+                <f:selectItem itemValue = "0-" itemLabel = "0-" /> 
+                </h:selectOneMenu>
+                </p:column>
+                
+                
+                
+          
+                <f:facet name="footer">
+                    <p:commandButton styleClass="Columns" value="Ara" action="#{search.Search()}" />
+                </f:facet>
+
+                                   
+            </p:panelGrid>
+        </h:form>
+        
+        <h:form >
+            
+            <p:panelGrid columns="1"  styleClass="Grid">        
+                <f:facet name="header"><h3 style="margin: 5px;">Giriş Yap</h3></f:facet> 
+
+                <p:column >
+                    <h:inputText styleClass="Columns" value="#{login.lkullaniciAdi}" />
+                    <h:inputSecret styleClass="Columns" value="#{login.lsifre}" />
+                </p:column>
+                
+                
+                <p:commandButton styleClass="Columns" value="Giriş" action="#{login.LoginControl()}" />
+                              
+                
+                
+                <f:facet name="footer">
+                <h:button styleClass="Columns" value="Kayıt Ol" outcome="signup"/>
+                </f:facet>
+
+                                   
+            </p:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+

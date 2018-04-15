@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Ana Sayfa</title>
+        <style> 
+            
+            .Bimage{
+                background-image: url("#{resource['resimler/background.jpg']}");
+                background-size: cover;
+                background-repeat: no-repeat;               
+            }
+
+            .Columns{
+               width: 95%;
+               margin: 3px;
+               text-align:center;         
+            }
+            
+            .Grid{
+                width: 30%;
+                position: absolute;
+                left: 35%;
+                top: 10%;
+                height:60%;           
+            }
+            
+            .Text{  
+                font-style:oblique;
+                font-size: 20px;
+                width: 100%;  
+            }
+            
+            .Baslik{
+                font-style:normal;
+                color: black;
+                font-size: 20px;
+                width: 100%;
+                margin-left: 10px;
+                height:20px;
+            }
+            
+        </style> 
+    </h:head>    
+    <h:body styleClass="Bimage">
+        <h:form>
+            <p:growl id ="growl" sticky="true" showDetail="true"/>
+            
+            <p:panelGrid columns="2"  styleClass="Grid">
+                
+                <f:facet name="header" ><h1  style="margin: 15px;">#{home.had} #{home.hsoyad}</h1></f:facet>
+                
+                <h:outputText styleClass="Baslik" value="Kan Grubu:" />   
+                <h:outputText styleClass="Text" value="#{home.hkan}" />
+                <h:outputText styleClass="Baslik"  value="Telefon:" />
+                <h:outputText styleClass="Text" value="#{home.htelefon}" />
+                <h:outputText styleClass="Baslik" value="e-posta:" />
+                <h:outputText styleClass="Text" value="#{home.hePosta}" />
+                <h:outputText styleClass="Baslik" value="Şehir:" />
+                <h:outputText styleClass="Text" value="#{home.hsehir}" />
+                <h:outputText styleClass="Baslik" value="İlçe:" />
+                <h:outputText styleClass="Text" value="#{home.hilce}" />
+                
+                <f:facet name="footer" >
+                <center>
+                <h:button style="margin: 15px; padding: 10px;" value="Bilgileri Güncelle" outcome="update"/>
+                <h:button style="margin: 15px; padding: 10px;" value="Anasayfaya Dön" outcome="login"/>
+                </center>
+                </f:facet>
+            </p:panelGrid> 
+            </h:form>
+    </h:body>
+</html>
+

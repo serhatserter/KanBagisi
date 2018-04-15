@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Üye Ol</title>
+        <style> 
+            
+            .back{
+                background-image: url("#{resource['resimler/background.jpg']}");
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-color: gray;
+            }
+
+            .Columns{
+               width: 95%;
+               margin: 3px;
+               text-align:center;
+               
+            }
+            .Grid{
+                width: 40%;
+                position: absolute;
+                left: 30%;
+                top: 10%;
+            }
+            
+            .Text{
+                width: 100%;
+                margin-left: 10px;
+                color: graytext;
+            }
+        </style> 
+    </h:head >
+    <h:body styleClass="back">
+        <p:growl id ="growl" sticky="true" showDetail="true"/>
+         <h:form >
+            
+            <p:panelGrid  columns="2"  styleClass="Grid">
+                          
+                <f:facet name="header" ><h3 style="margin: 5px;">Üye Ol</h3></f:facet> 
+                
+               
+                <h:outputText  styleClass="Text" value="Kullanıcı Adı" />    
+                <h:inputText styleClass="Columns" value="#{signup.skullaniciAdi}" />
+                <h:outputText styleClass="Text" value="Parola" />  
+                <h:inputSecret styleClass="Columns" value="#{signup.ssifre}" />
+                <h:outputText styleClass="Text" value="Adı" />    
+                <h:inputText styleClass="Columns" value="#{signup.sad}" />
+                <h:outputText styleClass="Text" value="Soyadı" />    
+                <h:inputText styleClass="Columns" value="#{signup.ssoyad}" />
+                <h:outputText styleClass="Text" value="Telefon (+90)" />    
+                <h:inputText styleClass="Columns" value="#{signup.stelefon}" />
+                <h:outputText styleClass="Text" value="e-Posta" />    
+                <h:inputText styleClass="Columns" value="#{signup.sePosta}" />
+                
+                <h:outputText styleClass="Text" value="Kan Grubu" />    
+                
+                <h:selectOneMenu styleClass="Columns" value = "#{signup.skan}"> 
+                <f:selectItem  itemValue = "A+" itemLabel = "A+" /> 
+                <f:selectItem itemValue = "A-" itemLabel = "A-" /> 
+                <f:selectItem itemValue = "B+" itemLabel = "B+" /> 
+                <f:selectItem itemValue = "B-" itemLabel = "B-" />
+                <f:selectItem itemValue = "AB+" itemLabel = "AB+" /> 
+                <f:selectItem itemValue = "AB-" itemLabel = "AB-" /> 
+                <f:selectItem itemValue = "0+" itemLabel = "0+" /> 
+                <f:selectItem itemValue = "0-" itemLabel = "0-" /> 
+                </h:selectOneMenu> 
+                
+                <h:outputText styleClass="Text" value="Bulunduğunuz Şehir" />    
+                <h:inputText styleClass="Columns" value="#{signup.ssehir}" />
+                <h:outputText styleClass="Text" value="Bulunduğunuz İlçe" />    
+                <h:inputText styleClass="Columns" value="#{signup.silce}" />
+                
+                
+                <f:facet name="footer">
+                <center>
+                    <p:commandButton style="margin: 5px;" value="Gönder" action="#{signup.UyeOl()}"/>
+                    <center><h:button style="margin: 5px; padding: 5px; width:30%;" value="Geri Dön" outcome="login"/></center>
+
+                </center>
+                
+                </f:facet>
+                
+                
+            </p:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+
